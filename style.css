@@ -1,0 +1,1224 @@
+/* =========================================
+   1. FONTS & RESET
+   ========================================= */
+@font-face {
+    font-family: 'GreatVibes';
+    src: url('fonts/GreatVibes-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #444;
+    line-height: 1.6;
+    background-color: #fdf5f5;
+}
+
+[id] {
+    scroll-margin-top: 80px;
+}
+
+/* =========================================
+   2. NAVBAR ATAS
+   ========================================= */
+.navbar-top {
+    position: fixed;
+    top: -60px; /* Sembunyikan awalnya */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between; /* Menjaga nama di kiri & inisial di kanan */
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10000;
+    transition: top 0.8s ease;
+}
+
+.navbar-top.show {
+    top: 0;
+}
+
+.nav-logo {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #b08968;
+}
+
+.toggle-nav-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #d4a373;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10000;
+    opacity: 0; /* Sembunyikan awalnya */
+    pointer-events: none; /* Nonaktifkan klik */
+}
+
+.toggle-nav-btn:hover {
+    background: #b08968;
+    transform: scale(1.05);
+}
+
+/* =========================================
+   3. BOTTOM NAVIGATION
+   ========================================= */
+.bottom-nav {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    z-index: 10000;
+    transition: bottom 0.8s ease;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav.show {
+    bottom: 0;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7rem;
+    flex: 1;
+}
+
+.nav-item .icon { font-size: 1.3rem; margin-bottom: 2px; }
+.nav-item:hover { color: #d4a373; }
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #d4a373 0%, #b08968 100%);
+    color: white;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-container { padding: 20px; }
+
+.hero h1 {
+    font-family: 'GreatVibes', cursive !important;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    margin: 10px 0;
+}
+
+/* =========================================
+   5. COUNTDOWN
+   ========================================= */
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.timer-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 12px;
+    min-width: 75px;
+}
+
+button, .btn-maps, .btn-copy, .btn-kirim {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 12px 30px;
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+button:hover { background-color: #b08968; }
+
+/* =========================================
+   6. MAIN CONTENT
+   ========================================= */
+.main-content { padding: 60px 20px 100px; }
+
+.mempelai {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.mempelai img {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #d4a373;
+    margin-bottom: 15px;
+}
+
+.mempelai h3 {
+    font-family: 'GreatVibes', cursive;
+    font-size: 2.5rem;
+    color: #b08968;
+    margin: 5px 0;
+}
+
+/* =========================================
+   7. GALERI & LOKASI
+   ========================================= */
+/* Cari bagian ini di style.css */
+.lokasi-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap !important; /* TAMBAHKAN INI */
+}
+
+/* Cari di dalam @media (max-width: 768px) */
+@media (max-width: 768px) {
+    .lokasi-grid {
+        flex-direction: row !important; /* TAMBAHKAN INI */
+        overflow-x: auto; /* TAMBAHKAN INI: Agar jika layar sangat kecil, bisa di-scroll ke samping */
+        padding-bottom: 15px;
+        align-items: stretch;
+    }
+
+    .acara-card {
+        min-width: 250px; /* Beri lebar minimum agar kotak tidak terlalu gepeng */
+        flex: 1;
+    }
+}
+
+.acara-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* Merapikan bingkai foto galeri */
+/* Merapikan bingkai foto galeri dengan warna Abu-abu Gelap */
+.gallery-item img {
+    width: 100%;
+    height: auto; /* UBAH DARI 100% KE AUTO: Agar mengikuti rasio asli gambar */
+    aspect-ratio: auto; /* ATAU biarkan browser menentukan rasio aslinya */
+    object-fit: contain; /* GANTI 'cover' ke 'contain' jika ingin melihat seluruh isi foto tanpa terpotong */
+    border-radius: 10px;
+}
+
+/* Efek saat kursor di atas foto */
+.gallery-item img:hover {
+    transform: translateY(-5px) scale(1.03); /* Gabungkan efek naik dan membesar */
+    border-color: #333333; /* Warna abu-abu jadi lebih gelap saat dihover */
+    box-shadow: 0 10px 25px rgba(212, 163, 115, 0.3); /* Bayangan berubah warna emas */
+    cursor: pointer;
+}
+
+/* =========================================
+   8. KADO NIKAH
+   ========================================= */
+.bank-logo {
+    width: 150px !important;
+    height: auto;
+    margin: 0 auto 15px;
+    display: block;
+}
+
+/* =========================================
+   9. RSVP
+   ========================================= */
+.rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-group { margin-bottom: 15px; }
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px;
+}
+
+.ucapan-item {
+    background: #fdf5f5;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid #d4a373;
+    text-align: left;
+}
+
+/* =========================================
+   10. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item { height: 180px; }
+    .mempelai { flex-direction: column; align-items: center; }
+    .hero h1 { font-size: 3.5rem; }
+
+    /* Navbar adjustments */
+    .navbar-top { height: 50px; padding: 0 15px; }
+    .nav-logo { font-size: 1rem; }
+    .nav-initials { font-size: 1rem; padding: 3px 10px; }
+
+    /* Bottom nav adjustments */
+    .bottom-nav { height: 60px; padding-bottom: 10px; }
+    .nav-item { font-size: 0.6rem; }
+    .nav-item .icon { font-size: 1.2rem; }
+
+    /* Main content adjustments */
+    .main-content { padding: 50px 15px 80px; }
+
+    /* Cards adjustments */
+    .acara-card { padding: 20px; min-width: 250px; }
+    .mempelai-card { padding: 30px 15px; max-width: 350px; }
+    .gift-card { padding: 20px; max-width: 300px; }
+
+    /* Form adjustments */
+    .rsvp-form { padding: 20px; }
+
+    /* Toggle button adjustments */
+    .toggle-nav-btn { bottom: 15px; left: 15px; padding: 8px 15px; font-size: 0.9rem; }
+
+    /* Music control adjustments */
+    .music-control { bottom: 75px; right: 15px; width: 45px; height: 45px; font-size: 1.3rem; }
+
+    /* Footer adjustments */
+    .wedding-footer { padding: 40px 15px 80px; }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    .hero h1 { font-size: 2.5rem; }
+    .hero-container { padding: 15px; }
+
+    .countdown { flex-wrap: wrap; gap: 5px; }
+    .timer-box { min-width: 60px; padding: 8px; }
+
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item { height: 200px; }
+
+    .acara-card { min-width: 200px; padding: 15px; }
+    .mempelai-card { padding: 20px 10px; }
+    .gift-card { padding: 15px; }
+
+    .rsvp-form { padding: 15px; }
+    .form-group input, .form-group select, .form-group textarea { padding: 10px; }
+
+    .toggle-nav-btn { bottom: 10px; left: 10px; padding: 6px 12px; font-size: 0.8rem; }
+    .music-control { bottom: 65px; right: 10px; width: 40px; height: 40px; font-size: 1.2rem; }
+}
+
+/* =========================================
+   11. MUSIC CONTROL (FIXED & ANIMATED)
+   ========================================= */
+.music-control {
+    position: fixed;
+    bottom: 90px; 
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(212, 163, 115, 0.9);
+    color: white;
+    border-radius: 50%;
+    display: none; /* Muncul via JS */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10001;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.music-control span {
+    display: inline-block;
+}
+
+/* Class animasi yang dipicu JavaScript */
+.rotate-music {
+    animation: spin-music 3s linear infinite !important;
+}
+
+@keyframes spin-music {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.countdown-section {
+    padding: 40px 20px;
+    background-color: #ffffff; /* Latar putih bersih */
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.countdown-wrapper .timer-box {
+    background: #d4a373; /* Warna cokelat emas tema Anda */
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 80px;
+    flex: 1;
+}
+
+.countdown-wrapper .timer-box span {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+}
+
+.countdown-wrapper .timer-box p {
+    font-size: 0.8rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+
+.wedding-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 20px 100px; /* 100px agar aman dari menu bawah */
+    margin-top: 50px;
+    width: 100%;
+}
+
+.footer-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.footer-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.made-with {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.heart {
+    color: #e74c3c;
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+}
+
+/* Animasi detak jantung untuk emoji hati */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Kontainer Utama Countdown di atas Galeri */
+.countdown-section-two {
+    max-width: 1000px; /* Samakan dengan max-width area acara Anda */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Mengatur kotak agar sejajar dan seimbang */
+.countdown-section-two .countdown-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Membagi 4 kolom sama rata */
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Mempercantik kotak countdown */
+.timer-box {
+    background: #d4a373; /* Warna cokelat sesuai tema */
+    color: white;
+    padding: 20px 10px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsif untuk HP agar tetap rapi */
+@media (max-width: 600px) {
+    .countdown-section-two .countdown-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* Jadi 2 baris x 2 kolom di HP */
+    }
+}
+
+/* Memperbesar Icon di Kartu Acara */
+.acara-card .icon {
+    font-size: 2.5rem; /* Jika menggunakan Emoji, perbesar fontnya */
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Styling untuk kotak tanggal acara */
+.date-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #d4a373 0%, #b08968 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    margin: 15px 0;
+    box-shadow: 0 6px 20px rgba(212, 163, 115, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Override untuk kotak tanggal di salam sejahtera - putih saja */
+.greeting-date-box {
+    background: white !important;
+    color: #d4a373 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid #d4a373 !important;
+}
+
+/* Styling untuk kotak tanggal yang terpusat dan maksimal sesuai mempelai */
+.date-box-centered {
+    max-width: 1100px; /* Sesuai dengan max-width mempelai-grid */
+    margin: 0 auto; /* Terpusat */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: white !important;
+    color: #d4a373 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid #d4a373 !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Responsif untuk date-box-centered */
+@media (max-width: 768px) {
+    .date-box-centered {
+        max-width: 90%; /* Sesuaikan untuk mobile */
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+.date-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.5);
+}
+
+.calendar-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
+}
+
+.event-date {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Jika icon menggunakan gambar/img */
+.acara-card .icon img {
+    width: 60px; /* Sesuaikan ukuran yang diinginkan */
+    height: auto;
+}
+
+/* Styling untuk tanggal sederhana setelah Pernikahan Kudus */
+.wedding-date-simple {
+    font-family: 'GreatVibes', cursive;
+    font-size: 2.2rem;
+    color: #d4a373;
+    text-align: center;
+    margin: 20px 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+}
+
+/* Responsif untuk tanggal sederhana */
+@media (max-width: 768px) {
+    .wedding-date-simple {
+        font-size: 1.8rem;
+        margin: 15px 0;
+    }
+}
+
+/* =========================================
+   14. DATE TABLE STYLING
+   ========================================= */
+.date-table-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.date-table-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 3px solid #d4a373;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.date-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #d4a373;
+}
+
+.calendar-table-icon {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 0 5px rgba(212, 163, 115, 0.3));
+}
+
+.date-table-header h3 {
+    font-family: 'GreatVibes', cursive;
+    font-size: 2rem;
+    color: #d4a373;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.date-table-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.date-table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(212, 163, 115, 0.1);
+    padding: 15px 20px;
+    border-radius: 15px;
+    border-left: 4px solid #d4a373;
+    transition: transform 0.3s ease;
+}
+
+.date-table-row:hover {
+    transform: translateX(5px);
+    background: rgba(212, 163, 115, 0.15);
+}
+
+.date-label {
+    font-weight: bold;
+    color: #b08968;
+    font-size: 1.1rem;
+    min-width: 80px;
+}
+
+.date-value {
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: right;
+    flex: 1;
+}
+
+/* Styling untuk tabel tanggal di salam sejahtera */
+.date-table-container-greeting {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.date-table-card-greeting {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 2px solid #d4a373;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 20px;
+}
+
+.date-table-content-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.date-table-row-greeting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(212, 163, 115, 0.1);
+    padding: 12px 15px;
+    border-radius: 12px;
+    border-left: 3px solid #d4a373;
+    transition: transform 0.3s ease;
+}
+
+.date-table-row-greeting:hover {
+    transform: translateX(3px);
+    background: rgba(212, 163, 115, 0.15);
+}
+
+.date-label-greeting {
+    font-weight: bold;
+    color: #b08968;
+    font-size: 1rem;
+    min-width: 70px;
+}
+
+.date-value-greeting {
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: right;
+    flex: 1;
+}
+
+/* Responsif untuk date table */
+@media (max-width: 768px) {
+    .date-table-card {
+        padding: 20px;
+        margin: 0 15px;
+    }
+
+    .date-table-header {
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+
+    .calendar-table-icon {
+        font-size: 2rem;
+    }
+
+    .date-table-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .date-table-row {
+        padding: 12px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .date-label {
+        min-width: auto;
+        font-size: 1rem;
+    }
+
+    .date-value {
+        text-align: left;
+        font-size: 0.95rem;
+    }
+
+    /* Responsif untuk date table greeting */
+    .date-table-card-greeting {
+        padding: 15px;
+        margin: 0 15px;
+    }
+
+    .date-table-row-greeting {
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+
+    .date-label-greeting {
+        min-width: auto;
+        font-size: 0.95rem;
+    }
+
+    .date-value-greeting {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+}
+
+/* Container Utama Wedding Gift */
+.gift-container {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.gift-intro {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wrapper untuk menyejajarkan kotak */
+.gift-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Supaya rapi saat dibuka di HP */
+}
+
+/* Desain Kotak (Card) */
+.gift-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.gift-card:hover {
+    transform: translateY(-5px);
+}
+
+.bank-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.account-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    letter-spacing: 2px;
+    margin: 10px 0;
+}
+
+.account-name {
+    font-size: 1rem;
+    color: #d4a373; /* Warna emas tema Anda */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Tombol Salin */
+.btn-copy {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-copy:hover {
+    background-color: #b08968;
+}
+
+/* Container utama mempelai */
+/* Cari bagian ini di style.css Anda */
+.mempelai-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Menjaga foto dan teks tetap rata tengah secara horizontal */
+    gap: 20px;
+    flex-wrap: nowrap !important; /* TAMBAHKAN INI: Memaksa tetap satu baris */
+    margin-top: 30px;
+}
+
+/* Cari di dalam @media (max-width: 768px) */
+@media (max-width: 768px) {
+    .mempelai-grid {
+        flex-direction: row !important; /* TAMBAHKAN INI: Memastikan tetap ke samping, bukan ke bawah */
+        gap: 10px; /* Perkecil jarak agar muat di layar HP */
+    }
+
+    .mempelai-card {
+        width: 45%; /* Pastikan kartu tidak memenuhi layar agar bisa berjejer */
+    }
+
+    .mempelai-img-wrapper {
+        width: 100px; /* Kecilkan ukuran foto agar muat berdua */
+        height: 100px;
+    }
+}
+
+/* Desain Kotak Mempelai */
+.mempelai-card {
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 400px; /* Sedikit lebih lebar dari kotak kado */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.mempelai-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Bingkai Foto di dalam Kotak */
+/* Di bagian CSS umum (atas) */
+.mempelai-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center top; /* TAMBAHKAN INI: Agar fokus ke kepala/wajah, bukan badan */
+}
+
+/* Di dalam @media (max-width: 768px) atau di bagian bawah file */
+@media (max-width: 768px) {
+    .mempelai-img-wrapper {
+        width: 120px;   /* Kecilkan ukuran lingkaran agar tidak terpotong layar */
+        height: 120px;
+        border-width: 3px; /* Tipiskan border agar proporsional */
+    }
+    
+    .mempelai-grid {
+        gap: 10px; /* Perkecil jarak antar foto */
+        align-items: flex-start; /* Pastikan sejajar dari atas */
+    }
+}
+
+/* Judul Nama */
+.mempelai-card h3 {
+    font-family: 'GreatVibes', cursive;
+    font-size: 2.5rem;
+    color: #d4a373;
+    margin-bottom: 10px;
+}
+
+.parent-label {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 15px;
+}
+
+.parent-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.line-divider {
+    width: 50%;
+    margin: 15px auto;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* Container untuk Logo Love */
+.love-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+}
+
+.love-icon {
+    font-size: 2.5rem;
+    color: #e74c3c; /* Warna merah hati */
+    filter: drop-shadow(0 0 5px rgba(231, 76, 60, 0.3));
+    animation: heartBeat 1.2s infinite; /* Efek detak jantung */
+}
+
+/* Animasi Detak Jantung */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+}
+
+/* Pengaturan khusus untuk layar HP */
+@media (max-width: 768px) {
+    .love-divider {
+        width: 100%;
+        margin: 10px 0;
+        order: 2; /* Mengatur urutan di tengah saat stack vertikal */
+    }
+    .mempelai-card:first-child { order: 1; }
+    .mempelai-card:last-child { order: 3; }
+}
+
+/* Mengatur tampilan inisial di pojok kanan atas */
+.nav-initials {
+    font-family: 'Montserrat', sans-serif; /* Gunakan font yang bersih */
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #d4a373; /* Warna emas tema Anda */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.ring-icon {
+    font-size: 1rem;
+    filter: drop-shadow(0 0 2px rgba(212, 163, 115, 0.5));
+    animation: shine 2s infinite; /* Efek kilau lembut */
+}
+
+/* Animasi kilau untuk cincin */
+@keyframes shine {
+    0% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* Sembunyikan garis tiga lama jika masih ada */
+.nav-hamburger {
+    display: none !important;
+}
+/* Styling untuk Cincin di Halaman Depan */
+.ring-floating {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring-emoji {
+    font-size: 4rem; /* Ukuran cincin di depan lebih besar */
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(212, 163, 115, 0.5));
+    animation: floatRing 3s ease-in-out infinite; /* Efek mengapung */
+}
+
+/* Animasi Mengapung dan Berputar Halus */
+@keyframes floatRing {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(10deg); /* Naik dan miring sedikit */
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Penyesuaian untuk HP */
+@media (max-width: 768px) {
+    .ring-emoji {
+        font-size: 3rem;
+    }
+}
+
+/* Penempatan Cincin di atas Salam Sejahtera */
+.ring-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Jarak ke tulisan Salam Sejahtera */
+    margin-top: 30px;
+}
+
+.ring-icon-inner {
+    font-size: 3rem; /* Ukuran sedikit lebih kecil dari yang di cover */
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(212, 163, 115, 0.4));
+    /* Menggunakan animasi yang sudah kita buat sebelumnya */
+    animation: floatRing 3s ease-in-out infinite;
+}
+
+/* =========================================
+   12. GALLERY CAPTION & MINI MAPS
+   ========================================= */
+.gallery-caption {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.mini-map-container {
+    margin-top: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 200px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.mini-map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.map-placeholder {
+    color: #999;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.map-placeholder .map-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* =========================================
+   13. GALLERY MODAL
+   ========================================= */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.gallery-modal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 3rem; }
+    .mempelai-nama { font-size: 2.5rem; }
+}
